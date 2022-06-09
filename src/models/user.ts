@@ -2,9 +2,17 @@ import { ResultSetHeader } from 'mysql2';
 import connection from './connection';
 import Queries from './queries';
 
-const save = async (name: string, amount: string): Promise<number> => {
-  const [result] = await connection.execute<ResultSetHeader>(Queries.SaveUser, [name, amount]);
+export const save = async (
+  username: string,
+  classe: string,
+  level: number,
+  password: string,
+): Promise<number> => {
+  const [result] = await connection.execute<ResultSetHeader>(
+    Queries.SaveUser,
+    [username, classe, level, password],
+  );
   return result.insertId;
 };
 
-export default save;
+export const getAll = async (): Promise<void> => {};
