@@ -9,7 +9,7 @@ export const productName: RequestHandler = (req, res, next) => {
     name: Joi.required(),
   })
     .validate({ name });
-  
+    
   if (error400) {
     return next({ code: HttpStatusCode.BadRequest, message: error400.details[0].message });
   }
@@ -39,7 +39,7 @@ export const productAmount: RequestHandler = (req, res, next) => {
   }
 
   const { error: error422 } = Joi.object({
-    amount: Joi.required(),
+    amount: Joi.string().min(3).required(),
   })
     .validate({ amount });
 
