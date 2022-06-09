@@ -3,7 +3,7 @@ import Joi from 'joi';
 import HttpStatusCode from '../enums/HttpStatusCode';
 
 export const productName: RequestHandler = (req, res, next) => {
-  const { name } = req.query;
+  const { name } = req.body;
 
   const { error: error400 } = Joi.object({
     name: Joi.required(),
@@ -27,7 +27,7 @@ export const productName: RequestHandler = (req, res, next) => {
 };
 
 export const productAmount: RequestHandler = (req, res, next) => {
-  const { amount } = req.query;
+  const { amount } = req.body;
 
   const { error: error400 } = Joi.object({
     amount: Joi.required(),
