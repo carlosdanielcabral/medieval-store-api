@@ -13,8 +13,8 @@ export const getAll = async (req: Request, res: Response) => {
   res.status(HttpStatusCode.Ok).json(products);
 };
 
-export const save = async (req: Request, res: Response) => {
-  const { name, amount }: Product = req.body;
+export const saveProduct = async (req: Request, res: Response) => {
+  const { name, amount } = req.body as Product;
 
   const product = await ProductService.saveProduct(name, amount);
 
