@@ -1,7 +1,7 @@
 enum Queries {
-  GetAllProducts = 'SELECT * FROM TrybeSmith.products',
-  SaveProduct = 'INSERT INTO TrybeSmith.products (name, amount), values (?, ?)',
-  SaveUser = 'INSERT INTO TrybeSmith.users (username, classe, level, password) values (?, ?, ?, ?)',
+  GetAllProducts = 'SELECT * FROM Trybesmith.Products',
+  SaveProduct = 'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
+  SaveUser = 'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
 }
 
 export default Queries;
