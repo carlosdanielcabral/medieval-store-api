@@ -1,13 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
-import HttpStatusCode from '../enums/HttpStatusCode';
 import ErrorHandler from '../interfaces/Error';
 
 const errorMiddlware = (err: ErrorHandler, _req: Request, res: Response, _next: NextFunction) => {
-  const status = HttpStatusCode[err.code];
+  if (!err.code) return res.status(500).json({ message: 'Internal Server Error' });
 
-  if (!status) return res.status(500).json({ message: 'Internal Server Error' });
-
-  return res.status(Number(status)).json({ message: err.message });
+  return res.status(err.code).json({ message: err.message });
 };
 
 export default errorMiddlware;
