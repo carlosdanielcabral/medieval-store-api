@@ -8,7 +8,7 @@ export const getAll = async (): Promise<Product[]> => {
   return result as Product[];
 };
 
-export const save = async (name: string, amount: string): Promise<{ insertedId: number }> => {
+export const save = async (name: string, amount: string): Promise<number> => {
   const [result] = await connection.execute<RowDataPacket[]>(Queries.SaveProduct, [name, amount]);
   const { insertedId } = result[0];
   return insertedId;
