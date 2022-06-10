@@ -1,4 +1,5 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
+import User from '../interfaces/User';
 import connection from './connection';
 import Queries from './queries';
 
@@ -15,4 +16,7 @@ export const save = async (
   return result.insertId;
 };
 
-export const getAll = async (): Promise<void> => {};
+export const getByUsername = async (username: string): Promise<User> => {
+  const [result] = await connection.execute<RowDataPacket[]>(Queries.GetUserByUsername, [username]);
+  return result[0] as User;
+};
