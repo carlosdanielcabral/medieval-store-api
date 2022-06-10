@@ -2,9 +2,16 @@ type Details = {
   message: string
 };
 
-interface ErrorHandler extends Error {
+type Error = {
   code: number,
-  details: Details[]
+  message: string,
+};
+
+interface ErrorHandler {
+  code: number,
+  details?: Details[],
+  message: string,
+  error?: Error
 }
 
 export default ErrorHandler;
