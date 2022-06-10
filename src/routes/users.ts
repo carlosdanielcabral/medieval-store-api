@@ -13,5 +13,4 @@ router
     validate.userPassword,
     User.saveUser,
   );
-
 export default router;
