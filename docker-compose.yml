@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - ./backend/database/db:/docker-entrypoint-initdb.d
+      - ./database/db:/docker-entrypoint-initdb.d
 
   api:
     build: '.'

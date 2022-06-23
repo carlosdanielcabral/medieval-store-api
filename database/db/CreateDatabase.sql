@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS MedievalStore;
+CREATE DATABASE IF NOT EXISTS MedievalStore;
 
 USE MedievalStore;
 
-CREATE TABLE Users (
+CREATE TABLE IF NOT EXISTS Users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   username TEXT NOT NULL,
   classe TEXT NOT NULL,
@@ -10,13 +10,13 @@ CREATE TABLE Users (
   password TEXT NOT NULL
 );
 
-CREATE TABLE Orders (
+CREATE TABLE IF NOT EXISTS Orders (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   userId INTEGER,
   FOREIGN KEY (userId) REFERENCES Users (id)
 );
 
-CREATE TABLE Products (
+CREATE TABLE IF NOT EXISTS Products (
   id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   amount TEXT NOT NULL,
@@ -31,20 +31,16 @@ VALUES
   ("Urd", "Arquiteta", 5, "tc&GXD2eEN=nfRzL"),
   ("Hawise", "Lenhador", 2, "fu*K9V?QuLjAdn*k");
 
-INSERT INTO Orders
+INSERT INTO Orders (userId)
 VALUES
   (1),
   (2),
   (3),
-  (4),
+  (4);
 
 INSERT INTO Products (name, amount)
 VALUES
   ("Elmo", "10 barras de ouro"),
-  (
-    "Bacinete",
-    "5 barras de ouro",
-    1
-  ),
+  ("Bacinete", "5 barras de ouro"),
   ("Cabasset", "1 barra de ouro"),
   ("Morrião", "25 barras de ouro");
