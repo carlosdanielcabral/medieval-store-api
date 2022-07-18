@@ -10,6 +10,10 @@ Este foi um dos projetos propostos pela Trybe no seu curso de Desenvolvimento We
 
 > Node, Express, Typescript, MySQL, Docker, JWT.
 
+## Dependências necessárias
+
+Para a execução deste projeto é necessário ter o Docker e Docker Compose instalados na máquina.
+
 ## Executando a aplicação
 
 ```bash
